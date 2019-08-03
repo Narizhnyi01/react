@@ -8,9 +8,3 @@
   .banner_image img{
     width: 100%;
   }
-  .item{
-    color: aqua;
-  }
-  .item.active{
-    color: salmon;
-  }
