@@ -11,10 +11,9 @@ const Posts = () => {
 				<button>кнопка</button>
 			</div>
 			<div className={s.posts}>
-				<Post />
-				<Post />
-				<Post />
-				<Post />
+				<Post like='12' message='how are you?'/>
+				<Post like='25' message='it is my post'/>
+				
 			</div>
 		</div>
 	);
