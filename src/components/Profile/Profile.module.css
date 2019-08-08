@@ -1,7 +1,4 @@
-.content{
-    grid-area: c;
-    background: blue;
-  }
+
   .content .top_cont img{
     width: 100%;
   }

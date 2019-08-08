@@ -10,8 +10,11 @@
   grid-auto-columns: 2fr 10fr;
 }
 
-
+.wrap_app_content{
+  grid-area: c;
+  background: rgb(17, 172, 172);
+}
 
 body {
-  color: #ffffff;
+  color: #000000;
 }
