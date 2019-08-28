@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import Navigation from './components/Navbar/Navigation';
+import Navigation from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 
@@ -12,8 +12,8 @@ const App = () => {
       <Header />
       <Navigation />
       <div className='wrap_app_content'>
-        {/* <Profile /> */}
-        <Dialogs />
+        <Profile />
+        {/* <Dialogs /> */}
       </div>
 
     </div>
