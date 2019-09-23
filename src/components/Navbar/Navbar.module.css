@@ -1,15 +1,17 @@
-.nav{
+.nav {
     grid-area: n;
-    background: rgb(68, 68, 33);
-  }
-  .nav ul li{
-    list-style: none;
-  }
-.item a {
-  color: red;
-  text-decoration: none;
+    background: #383735;
 }
-.item{
-    
-    color: inherit;
+
+.nav ul li {
+    list-style: none;
+}
+
+.item a {
+    color: #B0AFAB;
+    text-decoration: none;
+}
+
+.item .active{
+    color: #fff;
 }

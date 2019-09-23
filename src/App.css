@@ -12,8 +12,8 @@
 
 .wrap_app_content{
   grid-area: c;
-  background: rgb(17, 172, 172);
-
+  background: #F5F1E8;
+  min-height: 100vh;
 }
 
 body {
