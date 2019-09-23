@@ -1,3 +1,15 @@
-.text {
-   font-size: 18px;
+.dialogs {
+   display: grid;
+   grid-template-columns: 2fr 10fr;
+   padding: 20px;
+}
+.dialogs_item{
+
+}
+
+.dialog_items .active{
+   color: gold;
+}
+.dialog{
+
 }
