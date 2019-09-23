@@ -4,10 +4,10 @@ import Post from './Post/Post';
 
 const Posts = () => {
 	return (
-		<div>
+		<div className={s.posts}>
 			<div>my posts</div>
 			<div>
-				<textarea name="" id="" cols="30" rows="10"></textarea>
+				<textarea></textarea>
 				<button>кнопка</button>
 			</div>
 			<div className={s.posts}>

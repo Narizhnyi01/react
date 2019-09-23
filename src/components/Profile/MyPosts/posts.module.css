@@ -1,1 +1,7 @@
-
+.posts textarea{
+    width: 100%;
+    display: block;
+    resize: none;
+    height: 250px;
+    margin-top: 40px;
+}
