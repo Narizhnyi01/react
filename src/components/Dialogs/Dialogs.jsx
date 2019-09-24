@@ -2,34 +2,39 @@ import React from 'react';
 import style from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 
+const DialogItem = (props) => {
+
+    let path = "/dialogs/" + props.id;
+
+    return (
+        <div className={style.dialog + ' ' + style.active}>
+            <NavLink to={path}>{props.name}</NavLink>
+        </div>
+    );
+}
+
+const Message = (props) => {
+   return <div className={style.dialog}>{props.mes}</div>
+}
 
 const Dialogs = (props) => {
-   return(
-      <div className={style.dialogs}>
-         <div className={style.dialog_items}>
-            <div className={style.dialog + ' ' + style.active}>
-               <NavLink to="/dialogs/1">  Slava</NavLink>
+    return (
+        <div className={style.dialogs}>
+            <div className={style.dialog_items}>
+                <DialogItem name="Slava" id="1"/>
+                <DialogItem name="Anton" id="2"/>
+                <DialogItem name="Alona" id="3"/>
+                <DialogItem name="July" id="4"/>
+                <DialogItem name="Ruslan" id="5"/>
             </div>
-            <div className={style.dialog}>
-               <NavLink to="/dialogs/2">  Anton</NavLink>
+            <div className={style.messages}>
+               <Message mes="hello"/>
+               <Message mes="how are you?"/>
+               <Message mes="fine"/>
+               <Message mes="yo"/>
             </div>
-            <div className={style.dialog}>
-               <NavLink to="/dialogs/3">  Alona</NavLink>
-            </div>
-            <div className={style.dialog}>
-               <NavLink to="/dialogs/4">  July</NavLink>
-            </div>
-            <div className={style.dialog}>
-               <NavLink to="/dialogs/5">   Ruslan</NavLink>
-            </div>
-         </div>
-         <div className={style.messages}>
-            <div className={style.message}>Hello!!!!</div>
-            <div className={style.message}>How are you?</div>
-            <div className={style.message}>I'm fine</div>
-         </div>
-      </div>
-   );
+        </div>
+    );
 }
 
 export default Dialogs;
