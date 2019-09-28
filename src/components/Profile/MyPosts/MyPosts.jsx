@@ -22,7 +22,6 @@ const Posts = () => {
 			</div>
 			<div className={s.posts}>
 				{postsElement}
-				
 			</div>
 		</div>
 	);
