@@ -15,8 +15,8 @@ const App = () => {
         <Navigation />
         <div className='wrap_app_content'>
           <Route path='/profile' render={ () => <Profile />} />
-          <Route path='/dialogs' render={Dialogs} />
-          <Route path='/news' render={News} />
+          <Route path='/dialogs' render={ () => <Dialogs />} />
+          <Route path='/news' render={ () => <News />} />
           
         </div>
       </div>
