@@ -4,6 +4,9 @@ import Post from './Post/Post';
 
 const Posts = (props) => {
 
+	let postsElement =
+		props.posts.map( post => <Post like={post.like} message={post.message}/> );
+
 
     
 	return (
@@ -14,7 +17,7 @@ const Posts = (props) => {
 				<button>кнопка</button>
 			</div>
 			<div className={s.posts}>
-				{props.post}
+				{postsElement}
 			</div>
 		</div>
 	);
