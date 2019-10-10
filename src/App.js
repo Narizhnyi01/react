@@ -5,12 +5,12 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs'
 import News from './components/News/News';
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 
 const App = (props) => {
 
     return (
-        <BrowserRouter>
+
             <div className='app_wrapper'>
                 <Header/>
                 <Navbar state={props.state.navbar}/>
@@ -22,7 +22,7 @@ const App = (props) => {
 
                 </div>
             </div>
-        </BrowserRouter>
+
 
     );
 }
