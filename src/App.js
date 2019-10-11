@@ -7,6 +7,7 @@ import Dialogs from './components/Dialogs/Dialogs'
 import News from './components/News/News';
 import {Route} from "react-router-dom";
 
+
 const App = (props) => {
 
     return (
@@ -15,7 +16,7 @@ const App = (props) => {
                 <Header/>
                 <Navbar state={props.state.navbar}/>
                 <div className='wrap_app_content'>
-                    <Route path='/profile' render={() => <Profile state={props.state.profilePage}/>}/>
+                    <Route path='/profile' render={() => <Profile addPost={props.addPost} state={props.state.profilePage}/>}/>
                     <Route path='/dialogs'
                            render={() => <Dialogs state={props.state.messagesPage}/>}/>
                     <Route path='/news' render={() => <News/>}/>
