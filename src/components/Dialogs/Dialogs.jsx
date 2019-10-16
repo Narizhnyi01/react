@@ -7,10 +7,12 @@ const Dialogs = (props) => {
 
     let mesText = React.createRef();
 
-    let mesAlert = () => {
+    let addMes = () => {
         let textAlertMes = mesText.current.value;
-        alert(textAlertMes);
+        props.addMessage(textAlertMes);
+        mesText.current.value = '';
     }
+
 
     let dialogsElement = props.state.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/> );
 
@@ -24,7 +26,7 @@ const Dialogs = (props) => {
             <div className={style.messages}>
                 {messagesElements}
                 <textarea ref={mesText}></textarea>
-                <button onClick={mesAlert}>send</button>
+                <button onClick={addMes}>send</button>
             </div>
         </div>
     );

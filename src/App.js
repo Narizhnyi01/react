@@ -8,6 +8,7 @@ import News from './components/News/News';
 import {Route} from "react-router-dom";
 
 
+
 const App = (props) => {
 
     return (
@@ -16,9 +17,12 @@ const App = (props) => {
                 <Header/>
                 <Navbar state={props.state.navbar}/>
                 <div className='wrap_app_content'>
-                    <Route path='/profile' render={() => <Profile addPost={props.addPost} state={props.state.profilePage}/>}/>
+                    <Route path='/profile' render={() => <Profile
+                        addPost={props.addPost}
+                        profilePage={props.state.profilePage}
+                        updateNewPostText={props.updateNewPostText}/>}/>
                     <Route path='/dialogs'
-                           render={() => <Dialogs state={props.state.messagesPage}/>}/>
+                           render={() => <Dialogs addMessage={props.addMessage} state={props.state.messagesPage}/>}/>
                     <Route path='/news' render={() => <News/>}/>
 
                 </div>
