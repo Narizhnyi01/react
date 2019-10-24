@@ -2,7 +2,7 @@ import React from 'react';
 import s from './posts.module.css';
 import Post from './Post/Post';
 
-const Posts = (props) => {
+const MyPosts = (props) => {
 
 	let postsElement =
 		props.posts.map( post => <Post like={post.like} message={post.message}/> );
@@ -30,4 +30,4 @@ const Posts = (props) => {
 	);
 }
 
-export default Posts;
+export default MyPosts;
