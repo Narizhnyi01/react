@@ -12,8 +12,6 @@ const Dialogs = (props) => {
         props.addMessage(textAlertMes);
         mesText.current.value = '';
     }
-
-
     let dialogsElement = props.state.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/> );
 
     let messagesElements = props.state.messages.map( message => <Message message={message.message}/>);
