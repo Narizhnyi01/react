@@ -9,8 +9,7 @@ const Dialogs = (props) => {
 
     let addMes = () => {
         let textAlertMes = mesText.current.value;
-        props.addMessage(textAlertMes);
-        mesText.current.value = '';
+        props.dispatch({ type: 'ADD-MESSAGE', dialogMessage: textAlertMes });
     }
     let dialogsElement = props.state.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/> );
 

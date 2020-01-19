@@ -10,25 +10,19 @@ import {Route} from "react-router-dom";
 
 
 const App = (props) => {
-
     return (
-
             <div className='app_wrapper'>
                 <Header/>
                 <Navbar state={props.state.navbar}/>
                 <div className='wrap_app_content'>
                     <Route path='/profile' render={() => <Profile
-                        addPost={props.addPost}
-                        profilePage={props.state.profilePage}
-                        updateNewPostText={props.updateNewPostText}/>}/>
+                        dispatch={props.dispatch}
+                        profilePage={props.state.profilePage} />}/>
                     <Route path='/dialogs'
-                           render={() => <Dialogs addMessage={props.addMessage} state={props.state.messagesPage}/>}/>
+                           render={() => <Dialogs dispatch={props.dispatch} state={props.state.messagesPage}/>}/>
                     <Route path='/news' render={() => <News/>}/>
-
                 </div>
             </div>
-
-
     );
 }
 

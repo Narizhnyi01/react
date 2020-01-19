@@ -10,18 +10,19 @@ const MyPosts = (props) => {
 	let newPostElement = React.createRef();
 
 	let addPost = () => {
-		props.addPost();
+		props.dispatch({ type: 'ADD-POST' });
 	}
     let onPostChange = () => {
 		let textVal = newPostElement.current.value
-		props.updateNewPostText(textVal);
+		let newVar = { type: 'UPDATE-NEW-POST-TEXT', newText: textVal };
+		props.dispatch(newVar);
 	}
 	return (
 		<div className={s.posts}>
 			<div>my posts</div>
 			<div>
-				<textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
-				<button  onClick={addPost}>Send</button>
+				<textarea onChange={ onPostChange } ref={newPostElement} value={props.newPostText}/>
+				<button  onClick={ addPost }>Send</button>
 			</div>
 			<div className={s.posts}>
 				{postsElement}
