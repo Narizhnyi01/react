@@ -2,7 +2,7 @@ import React from 'react';
 import Navigation from "./Navigation/Navigation";
 import Friends from "./Friends/Friends";
 import style from "./Navbar.module.css"
-const Navbar = (props) => {
+const Sidebar = (props) => {
     return (
         <div className={style.wrap_nav}>
             <Navigation/>
@@ -11,4 +11,4 @@ const Navbar = (props) => {
 
     );
 }
-export default Navbar;
+export default Sidebar;
