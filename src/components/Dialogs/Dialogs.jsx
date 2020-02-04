@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {addMesActionCreator, updateNewMesTextActionCreator} from "../../redux/state";
+import {addMesActionCreator, updateNewMesTextActionCreator} from "../../redux/dialogs-reducer";
 
 
 const Dialogs = (props) => {
@@ -11,15 +11,14 @@ const Dialogs = (props) => {
 
     let dialogsElement = props.state.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/> );
 
-    let mesText = React.createRef();
+    let newMessageText = props.state.newDialogText;
 
     let addMes = () => {
         props.dispatch(addMesActionCreator());
     }
-    let mesChange = () => {
-        let textMes = mesText.current.value;
-        let newTextMes = updateNewMesTextActionCreator(textMes);
-        props.dispatch(newTextMes);
+    let mesChange = (e) => {
+        let textMes = e.target.value;
+        props.dispatch(updateNewMesTextActionCreator(textMes));
     }
 
     return (
@@ -29,8 +28,8 @@ const Dialogs = (props) => {
             </div>
             <div className={style.messages}>
                 {messagesElements}
-                <textarea onChange={ mesChange } ref={mesText} value={props.newDialogText}></textarea>
-                <button onClick={ addMes }>send</button>
+                <textarea onChange={mesChange} value={newMessageText}></textarea>
+                <button onClick={addMes}>send</button>
             </div>
         </div>
     );

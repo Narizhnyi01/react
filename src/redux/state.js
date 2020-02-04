@@ -1,8 +1,7 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MES_TEXT = 'UPDATE-NEW-MES-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
 let store = {
 
     _state: {
@@ -54,43 +53,17 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action){
-        if (action.type === 'ADD-POST'){
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                like: 0
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
+        this._state.navbar = sidebarReducer(this._state.navbar, action);
+        this._callSubscriber(this._state);
 
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-
-        } else if (action.type === 'ADD-MESSAGE'){
-            let newMessage = {
-                id: 1,
-                message: this._state.messagesPage.newDialogText
-            };
-            this._state.messagesPage.messages.push(newMessage);
-            this._state.messagesPage.newDialogText = '';
-            this._callSubscriber(this._state);
-
-        } else if (action.type === 'UPDATE-NEW-MES-TEXT'){
-            this._state.messagesPage.newDialogText = action.newTextMes;
-            this._callSubscriber(this._state);
-        }
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
 
-export const updateNewPostTextActionCreator = (textVal) => ({ type: UPDATE_NEW_POST_TEXT, newText: textVal })
 
-export const addMesActionCreator = () => ({type: ADD_MESSAGE})
 
-export const updateNewMesTextActionCreator = (textMes) => ({ type: UPDATE_NEW_MES_TEXT, newTextMes: textMes })
 
 export default store;
 window.store = store;
