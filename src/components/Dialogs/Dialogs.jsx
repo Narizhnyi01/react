@@ -6,19 +6,20 @@ import {addMesActionCreator, updateNewMesTextActionCreator} from "../../redux/di
 
 
 const Dialogs = (props) => {
+    let state = props.messagesPage;
 
-    let messagesElements = props.state.messages.map( message => <Message message={message.message}/>);
+    let messagesElements = state.messages.map( message => <Message message={message.message}/>);
 
-    let dialogsElement = props.state.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/> );
+    let dialogsElement = state.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/> );
 
-    let newMessageText = props.state.newDialogText;
+    let newMessageText = state.newDialogText;
 
     let addMes = () => {
-        props.dispatch(addMesActionCreator());
+        props.sendMessage();
     }
     let mesChange = (e) => {
         let textMes = e.target.value;
-        props.dispatch(updateNewMesTextActionCreator(textMes));
+        props.updateNewMessage(textMes);
     }
 
     return (
