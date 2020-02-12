@@ -13,11 +13,11 @@ const App = (props) => {
     return (
             <div className='app_wrapper'>
                 <Header/>
-                <Sidebar state={props.state.sidebarInfo}/>
+                <Sidebar/>
                 <div className='wrap_app_content'>
-                    <Route path='/profile' render={() => <Profile store={props.store}/>}/>
+                    <Route path='/profile' render={() => <Profile/>}/>
                     <Route path='/dialogs'
-                           render={() => <DialogsContainer store={props.store}/>}/>
+                           render={() => <DialogsContainer/>}/>
                     <Route path='/news' render={() => <News/>}/>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './posts.module.css';
 import Post from "./Post/Post";
-// import Post from './Post/Post';
+
 
 
 

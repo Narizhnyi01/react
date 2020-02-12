@@ -6,7 +6,7 @@ const Sidebar = (props) => {
     return (
         <div className={style.wrap_nav}>
             <Navigation/>
-            <Friends state={props.state}/>
+            {/*<Friends state={props.state}/>*/}
         </div>
 
     );
