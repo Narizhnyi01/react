@@ -8,9 +8,9 @@ import {addMesActionCreator, updateNewMesTextActionCreator} from "../../redux/di
 const Dialogs = (props) => {
     let state = props.messagesPage;
 
-    let messagesElements = state.messages.map( message => <Message message={message.message}/>);
+    let messagesElements = state.messages.map( message => <Message key={message.id} message={message.message}/>);
 
-    let dialogsElement = state.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id}/> );
+    let dialogsElement = state.dialogs.map( dialog => <DialogItem name={dialog.name} key={dialog.id} id={dialog.id}/> );
 
     let newMessageText = state.newDialogText;
 

@@ -1,0 +1,7 @@
+.row{
+    display: flex;
+}
+.col_1 img{
+    width: 50px;
+    height: auto;
+}
