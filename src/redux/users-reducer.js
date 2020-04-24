@@ -6,7 +6,7 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 let initialState = {
     users: [],
-    pageSize: 55,
+    pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false
