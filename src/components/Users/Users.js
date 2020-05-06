@@ -4,6 +4,7 @@ import userPhoto from "../../images/icon.png";
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
 import {usersAPI} from "../../api/api";
+import {toggleFollowingProgress} from "../../redux/users-reducer";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -28,20 +29,29 @@ let Users = (props) => {
                         <NavLink to={'/profile/' + u.id}>
                             <img src={u.photos.small != null ? u.photos.small : userPhoto} alt=""/>
                         </NavLink>
-                        {u.followed ? <button onClick={() => {
+                        {u.followed
+                            ? <button disabled={props.followingInProgress.some( id => id === u.id)} onClick={() => {
+                                props.toggleFollowingProgress(true, u.id)
                                 usersAPI.deleteUser(u.id).then(data => {
                                     if (data.resultCode == 0) {
 
                                         props.unfollow(u.id)
+                                        props.toggleFollowingProgress(false, u.id)
                                     }
+
+
                                 })
                             }}>unfollow</button>
 
-                            : <button onClick={() => {
+                            : <button disabled={props.followingInProgress.some( id => id === u.id)} onClick={() => {
+                                props.toggleFollowingProgress(true, u.id)
+
                                 usersAPI.followUser(u.id).then(data => {
                                     if (data.resultCode == 0) {
 
                                         props.follow(u.id)
+                                        props.toggleFollowingProgress(false, u.id)
+
                                     }
                                 })
                             }}>follow</button>}
