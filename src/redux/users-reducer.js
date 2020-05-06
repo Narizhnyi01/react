@@ -4,12 +4,15 @@ const SET_USER = 'SET_USER';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+
+
 let initialState = {
     users: [],
-    pageSize: 5,
+    pageSize: 30,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: false
+    isFetching: false,
+    followingInProgress: false,
 };
 const usersReducer = (state = initialState, action) => {
     switch (action.type){
