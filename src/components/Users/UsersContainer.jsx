@@ -8,14 +8,12 @@ import {
     toggleIsFetching,
     unfollow
 } from "../../redux/users-reducer";
-import * as axios from "axios";
-import Users from "./Users";
+
 import Preloader from "../Common/Preloadrer/Preloader";
-import {usersAPI} from "../../api/api";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
-import Dialogs from "../Dialogs/Dialogs";
-// import {default} from "react-redux/lib/utils/Subscription";
+
 import {compose} from "redux";
+import Users from "./Users";
 
 
 class UsersContainer extends React.Component {
@@ -69,6 +67,6 @@ let mapStateToProps = (state) => {
 //     })(AuthRedirectComponent);
 
 export default compose(
-    withAuthRedirect,
+
     connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers})
 )(UsersContainer)

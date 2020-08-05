@@ -7,3 +7,8 @@
     color: red;
     display: block;
 }
+.form_summary_error {
+    border: 1px solid darkred;
+    padding: 5px;
+    color: darkred;
+}
