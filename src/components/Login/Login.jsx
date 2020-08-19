@@ -31,7 +31,7 @@ const Login = (props) => {
     const onSubmit = (formData) => {
         props.login(formData.email, formData.password, formData.rememberMe)
     }
-
+debugger;
     if (props.isAuth){
         return <Redirect to={'/profile'}/>
     }
@@ -43,7 +43,9 @@ const Login = (props) => {
 
 }
 
-const mapStateToProps = (state) => ({
+let mapStateToProps = (state) => ({
+
     isAuth: state.auth.isAuth
 });
+
 export default connect(mapStateToProps, { login }) (Login);
