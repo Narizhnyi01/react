@@ -13,6 +13,7 @@ let initialState = {
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA:
+
             return {
                 ...state,
                 ...action.payload
@@ -37,9 +38,9 @@ export const getAuthUserData = () => async (dispatch) => {
 }
 export const login = (email, password, rememberMe) => async (dispatch) => {
     let response = await authAPI.login(email, password, rememberMe);
-
     if (response.data.resultCode === 0) {
-        dispatch(setAuthUserData());
+
+        dispatch(getAuthUserData());
     } else {
         let message = response.data.messages.length > 0 ? response.data.messages[0] : "some error"
         dispatch(stopSubmit("login", {_error: message}));
