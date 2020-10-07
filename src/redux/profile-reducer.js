@@ -1,4 +1,5 @@
 import {profileAPI, usersAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -9,9 +10,9 @@ let initialState = {
     posts: [
         {id: 1, message: 'hello', like: '12'},
         {id: 2, message: 'how are you?', like: '17'},
-        {id: 2, message: 'how are you?', like: '27'},
-        {id: 2, message: 'how are 21?', like: '37'},
-        {id: 2, message: 'how are you111?', like: '47'}
+        {id: 3, message: 'how are you?', like: '27'},
+        {id: 4, message: 'how are 21?', like: '37'},
+        {id: 5, message: 'how are you111?', like: '47'}
     ],
     // newPostText: '',
     profile: null,
@@ -75,11 +76,25 @@ export const updateStatus = (status) => async (dispatch) => {
     }
 }
 export const savePhoto = (file) => async (dispatch) => {
-    debugger
     let response = await profileAPI.savePhoto(file);
     if (response.data.resultCode === 0) {
         
         dispatch(savePhotoSuccess(response.data.data.photos));
+    }
+}
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    let response = await profileAPI.saveProfile(profile);
+    if (response.data.resultCode === 0) {
+        dispatch(getProfile(userId));
+    } else {
+        let key = response.data.messages[0].match(/Contacts->(\w+)/)[1].toLowerCase();
+        dispatch(stopSubmit('editProfile', {
+            contacts: {[key]: response.data.messages[0]},
+        }));
+        dispatch(stopSubmit("edit-profile", {"contacts": {[key]: 'Invalid format url: ' + key} }));
+        debugger
+        return Promise.reject({_error: response.data.messages[0] })
     }
 }
 
