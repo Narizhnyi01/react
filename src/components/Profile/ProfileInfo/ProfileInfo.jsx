@@ -15,8 +15,7 @@ const ProfileInfo = (props) => {
 
     const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
-            // debugger
-            props.savePhoto(e.target.files[0])
+            props.savePhoto(e.target.files[0]);
         }
     }
 
@@ -37,10 +36,15 @@ const ProfileInfo = (props) => {
                 {/*<img src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt=''/>*/}
             </div>
             <div className={style.body_post}>
-                <img
-                    src={props.profile.photos.large || 'https://lh3.googleusercontent.com/proxy/Ukde1k4yAp1SNrRVnJjQJBwflhpEnXu_Q3CQZBiKaBC0I62luEEIBII7HYkkWXBTzWlPs88JfYWtJugb_lXkvVWdHgxUFkU0nDIr'}
-                    alt=""/>
-                {props.isOwner && <input type="file" onChange={onMainPhotoSelected}/>}
+                <div className={style.photo_wrap}>
+                    <img
+                        src={props.profile.photos.large || 'https://lh3.googleusercontent.com/proxy/Ukde1k4yAp1SNrRVnJjQJBwflhpEnXu_Q3CQZBiKaBC0I62luEEIBII7HYkkWXBTzWlPs88JfYWtJugb_lXkvVWdHgxUFkU0nDIr'}
+                        alt=""/>
+                    {props.isOwner && <input className={style.file_photo} id="file_photo" type="file" onChange={onMainPhotoSelected}/>}
+                    {props.isOwner && <label className={style.label_photo} for="file_photo">Загрузить фото</label>}
+                </div>
+
+
                 <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
 
 
