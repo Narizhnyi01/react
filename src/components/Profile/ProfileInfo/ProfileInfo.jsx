@@ -5,6 +5,7 @@ import Preloader from "../../Common/Preloadrer/Preloader";
 
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import ProfileDataFormReduxForm from "./ProfileDataForm";
+import MiniPreloader from "../../Common/Preloadrer/MiniPreloader";
 
 
 const ProfileInfo = (props) => {
@@ -42,8 +43,8 @@ const ProfileInfo = (props) => {
                         alt=""/>
                     {props.isOwner && <input className={style.file_photo} id="file_photo" type="file" onChange={onMainPhotoSelected}/>}
                     {props.isOwner && <label className={style.label_photo} for="file_photo">Загрузить фото</label>}
+                    {props.isFetching && <div className={style.loading_box}><MiniPreloader/></div>}
                 </div>
-
 
                 <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
 

@@ -30,7 +30,7 @@ class App extends React.Component {
                 <Sidebar/>
                 <div className='wrap_app_content'>
                     <Switch>
-                        <Route path='/profile/:userId?'
+                        <Route exact path='/'
                                render={() => <ProfileContainer/> } />
                     <Route path='/profile/:userId?'
                            render={ () => <ProfileContainer/> } />
