@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Sidebar from './components/Navbar/Navbar';
 import News from './components/News/News';
-import {Route, Switch, withRouter} from "react-router-dom";
+import {Redirect, Route, Switch, withRouter} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -17,9 +17,19 @@ const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsCo
 
 
 class App extends React.Component {
+    catchAllUnhandledErrors = (promiseRejectionEvent) => {
+        alert("Some error");
+        console.error(promiseRejectionEvent);
+    }
     componentDidMount() {
         this.props.initializeApp();
+        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
     }
+    componentWillUnmount() {
+        window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+
+    }
+
     render() {
        if (!this.props.initialized){
            return  <Preloader />
@@ -30,8 +40,7 @@ class App extends React.Component {
                 <Sidebar/>
                 <div className='wrap_app_content'>
                     <Switch>
-                        <Route exact path='/'
-                               render={() => <ProfileContainer/> } />
+                        <Redirect exact from="/" to="/profile" />
                     <Route path='/profile/:userId?'
                            render={ () => <ProfileContainer/> } />
                     <Route path='/dialogs'

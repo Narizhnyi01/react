@@ -33,7 +33,6 @@ class ProfileContainer extends React.Component {
     }
 
     render(){
-        debugger
         return (
 
             <div>
@@ -63,17 +62,5 @@ let mapStateToProps = (state) => ({
 
 export default compose(
     connect(mapStateToProps, {getProfile, getStatus, updateStatus, savePhoto, saveProfile}),
-
     withRouter
-
 )(ProfileContainer);
-
-// let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
-
-
-
-
-
-// let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
-//
-// export default connect(mapStateToProps, {getProfile}) (WithUrlDataContainerComponent);

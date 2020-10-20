@@ -14,8 +14,6 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portion
     let [portionNumber, setPortionNumber] = useState(1);
     let leftPortionNumber = (portionNumber - 1) * portionSize + 1;
     let rightPortionNumber = portionNumber * portionSize;
-
-    debugger
     return (
 
             <div>
