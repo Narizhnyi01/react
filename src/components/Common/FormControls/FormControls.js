@@ -8,8 +8,7 @@ const FormControl = ({input, meta: {touched, error}, children}) => {
     return (
         <div className={style.formControl + " " + (hasError ? style.error : "")}>
             {children}
-
-            { hasError && <span>{error}</span> }
+            { hasError && <span className={'error_input'}>{error}</span> }
         </div>
     )
 }

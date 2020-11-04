@@ -1,6 +1,6 @@
 import React from 'react';
 import {addPostActionCreator} from "../../../redux/profile-reducer";
-
+import {reset} from 'redux-form';
 import {connect} from "react-redux";
 import MyPosts from "./MyPosts";
 
@@ -17,6 +17,7 @@ let mapDispatchToProps = (dispatch) => {
 
         onAddPost: (newPost) => {
             dispatch(addPostActionCreator(newPost));
+            dispatch(reset('dialogAddPostForm'));
         }
     }
 }

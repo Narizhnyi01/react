@@ -17,7 +17,7 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                         </NavLink>
                         {user.followed
                             ? <button disabled={followingInProgress.some( id => id === user.id)} onClick={() => {
-                                // props.toggleFollowingProgress(true, user.id)
+
                                 unfollow(user.id)
                             }}>unfollow</button>
 
@@ -32,10 +32,7 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                             <div className="name">{user.name}</div>
                             <div className="status">{user.status}</div>
                         </span>
-                        <span>
-                           <div>{"user.location.country"}</div>
-                           <div>{"user.location.city"}</div>
-                       </span>
+
 
                     </div>
                 </div>

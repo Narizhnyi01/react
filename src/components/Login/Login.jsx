@@ -8,20 +8,32 @@ import {Redirect} from "react-router-dom";
 import {login} from "../../redux/auth-reducer";
 
 const LoginForm = (props) => {
+    let captchaField  = createField("Symbols from image", "captcha", [required], Input, {});
     return <form onSubmit={props.handleSubmit}>
 
-        {createField("Email", "email", [required], Input)}
-        {createField("password", "password", [required], Input, {type: "password"})}
-        {createField(null, "rememberMe", [], Input, {type: "checkbox"}, "remember me")}
+        <div className="row_input">
+            {createField("Email", "email", [required], Input)}
+        </div>
+        <div className="row_input">
+            {createField("Password", "password", [required], Input, {type: "password"})}
+        </div>
+        <div className="row_input row_check">
+            {/*{createField(null, "rememberMe", [], Input, {type: "checkbox"}, "remember me")}*/}
+            <Field id='rem' name='rememberMe' component={Input} type='checkbox'/>
+            <label htmlFor="rem">Remember me</label>
+        </div>
+
 
         { props.captchaUrl && <img src={props.captchaUrl} alt=""/>}
-        { props.captchaUrl &&  createField("Symbols from image", "captcha", [required], Input, {})}
 
+        { props.captchaUrl &&  <div className="row_input">{captchaField}</div> }
+
+
+            <button className={'btn_login'}>Login</button>
         { props.error &&  <div className={style.form_summary_error}>{props.error}</div>}
 
-            <div><button>Login</button></div>
-        
-        </form>
+
+    </form>
 }
 
 const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm);
@@ -33,9 +45,12 @@ const Login = (props) => {
     if (props.isAuth){
         return <Redirect to={'/profile'}/>
     }
-    return <div>
-    <h1>Login</h1>
-        <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
+    return <div className={'login_page'}>
+        <div className="form_wrap">
+            <h1>Login</h1>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
+        </div>
+
     </div>
 
 }
