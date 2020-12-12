@@ -1,0 +1,49 @@
+$gold: #f1bda5;
+
+.login_page {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  // background-image: url(https://source.unsplash.com/user/erondu/1600x900);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #fff;
+  font-weight: 500;
+  overflow: hidden;
+  &::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba($color: #fff, $alpha: 0.3);
+  }
+}
+
+.form_wrap {
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+  z-index: 1;
+  .row_input{
+    margin-bottom: 30px;
+  }
+}
+
+.form_wrap h1 {
+  text-align: center;
+}
+
+.form_wrap input {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+
+
+
