@@ -53,6 +53,7 @@ export const renderCheckbox = ({input, label}) => (
                 <Checkbox
                     checked={input.value ? true : false}
                     onChange={input.onChange}
+                    color="primary"
                 />
             }
             label={label}

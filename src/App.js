@@ -12,6 +12,7 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/Common/Preloadrer/Preloader";
 import {withSuspence} from "./hoc/withSuspense";
+import Container from "@material-ui/core/Container";
 // import DialogsContainer from "./components/Dialogs/DialogsContainer";
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 
@@ -35,7 +36,7 @@ class App extends React.Component {
            return  <Preloader />
        }
         return (
-            <div className='app_wrapper'>
+            <Container>
                 <HeaderContainer/>
                 <Sidebar/>
                 <div className='wrap_app_content'>
@@ -51,7 +52,7 @@ class App extends React.Component {
                     <Route path='*' render={() => <div>not found 404</div>}/>
                     </Switch>
                 </div>
-            </div>
+            </Container>
         );
     }
 }

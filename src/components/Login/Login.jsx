@@ -9,6 +9,23 @@ import {Redirect} from "react-router-dom";
 import {login} from "../../redux/auth-reducer";
 import Button from "@material-ui/core/Button";
 import {renderCheckbox, renderTextField} from "../Common/FormControls/MaterialUiForm";
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+import purple from "@material-ui/core/colors/purple";
+
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            // Purple and green play nicely together.
+            main: purple[500],
+        },
+        secondary: {
+            // This is green.A700 as hex.
+            main: '#11cb5f',
+        },
+    },
+});
+
 
 const LoginForm = (props) => {
     let captchaField  = createField("Symbols from image", "captcha", [required], Input, {});
@@ -16,11 +33,11 @@ const LoginForm = (props) => {
 
         <div className="row_input input_label">
             {/*{createField("Email", "email", [required], Input)}*/}
-            <Field fullWidth name="email" component={renderTextField} label="Email" validate={required}/>
+            <Field color="secondary" fullWidth name="email" component={renderTextField} label="Email" validate={required}/>
         </div>
         <div className="row_input">
             {/*{createField("Password", "password", [required], Input, {type: "password"})}*/}
-            <Field fullWidth type={'password'} name="password" component={renderTextField} label="Password" validate={required}/>
+            <Field color="primary" fullWidth type={'password'} name="password" component={renderTextField} label="Password" validate={required}/>
 
         </div>
         <div className="row_input row_check">
@@ -39,8 +56,8 @@ const LoginForm = (props) => {
             {/*    <span className={'top_btn'}>Login</span>*/}
             {/*    <span className={'bot_btn'}>Login</span>*/}
             {/*</button>*/}
-            <Button type={'submit'} variant="outlined" color="secondary">
-                Secondary
+            <Button type={'submit'} variant="contained" color="secondary">
+                Login
             </Button>
         { props.error &&  <div className={style.form_summary_error}>{props.error}</div>}
 
@@ -59,6 +76,7 @@ const Login = (props) => {
     }
     return <div className={'login_page'}>
         <div className="form_wrap">
+
             <h1>Login</h1>
             <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>

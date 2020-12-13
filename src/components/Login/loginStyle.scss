@@ -6,12 +6,12 @@ $gold: #f1bda5;
   right: 0;
   top: 0;
   bottom: 0;
-  // background-image: url(https://source.unsplash.com/user/erondu/1600x900);
+  background-image: url(https://source.unsplash.com/user/erondu/1600x900);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #fff;
+  background-size: cover;
   font-weight: 500;
   overflow: hidden;
   &::after{
@@ -21,7 +21,7 @@ $gold: #f1bda5;
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba($color: #fff, $alpha: 0.3);
+    background-color: rgba($color: #000, $alpha: 0.3);
   }
 }
 
@@ -37,6 +37,7 @@ $gold: #f1bda5;
 
 .form_wrap h1 {
   text-align: center;
+  color: #ffffff;
 }
 
 .form_wrap input {
