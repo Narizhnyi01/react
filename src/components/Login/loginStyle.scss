@@ -6,7 +6,6 @@ $gold: #f1bda5;
   right: 0;
   top: 0;
   bottom: 0;
-  background-image: url(https://source.unsplash.com/user/erondu/1600x900);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,15 +13,16 @@ $gold: #f1bda5;
   background-size: cover;
   font-weight: 500;
   overflow: hidden;
-  &::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba($color: #000, $alpha: 0.3);
-  }
+  background: #fff;
+  //&::after{
+  //  content: '';
+  //  position: absolute;
+  //  left: 0;
+  //  right: 0;
+  //  top: 0;
+  //  bottom: 0;
+  //  background-color: rgba($color: #000, $alpha: 0.3);
+  //}
 }
 
 .form_wrap {
@@ -37,7 +37,7 @@ $gold: #f1bda5;
 
 .form_wrap h1 {
   text-align: center;
-  color: #ffffff;
+  color: #000;
 }
 
 .form_wrap input {

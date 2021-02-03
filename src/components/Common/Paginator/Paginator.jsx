@@ -23,18 +23,18 @@ let Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portion
 
             <div>
 
-                { portionNumber > 1 &&
-                <PaginationItem textSecondary variant={'outlined'} type={'previous'} onClick={ () => { setPortionNumber (portionNumber - 1 )} }>Prev</PaginationItem>}
-                {pages
-                    .filter( p => p >= leftPortionNumber && p <= rightPortionNumber)
-                    .map((p) => {
-                    return <PaginationItem textSecondary variant={'outlined'} page={p} className={currentPage === p && style.select_page} onClick={(e) => {
-                        onPageChanged(p);
-                    }}/>
-                })}
-                { portionCount > portionNumber &&
-                <PaginationItem textSecondary variant={'outlined'} type={'next'} onClick={ () => { setPortionNumber (portionNumber + 1 )} }>Next</PaginationItem>}
-                <Pagination count={pagesCount} variant="outlined" onChange={(event,val) => {
+                {/*{ portionNumber > 1 &&*/}
+                {/*<PaginationItem textSecondary variant={'outlined'} type={'previous'} onClick={ () => { setPortionNumber (portionNumber - 1 )} }>Prev</PaginationItem>}*/}
+                {/*{pages*/}
+                {/*    .filter( p => p >= leftPortionNumber && p <= rightPortionNumber)*/}
+                {/*    .map((p) => {*/}
+                {/*    return <PaginationItem textSecondary variant={'outlined'} page={p} className={currentPage === p && style.select_page} onClick={(e) => {*/}
+                {/*        onPageChanged(p);*/}
+                {/*    }}/>*/}
+                {/*})}*/}
+                {/*{ portionCount > portionNumber &&*/}
+                {/*<PaginationItem textSecondary variant={'outlined'} type={'next'} onClick={ () => { setPortionNumber (portionNumber + 1 )} }>Next</PaginationItem>}*/}
+                <Pagination className={style.pagination}  count={pagesCount} color="primaty" variant="outlined" onChange={(event,val) => {
                     onPageChanged(val);
                 }}/>
 

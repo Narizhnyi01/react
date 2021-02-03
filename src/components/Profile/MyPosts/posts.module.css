@@ -8,3 +8,28 @@
 .posts{
     padding: 20px;
 }
+.text textarea{
+    margin-top: 0 !important;
+    height: 150px !important;
+}
+.text{
+    margin-bottom: 20px !important;
+}
+form .button{
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+}
+.mb30{
+    margin-bottom: 30px;
+    display: block;
+}
+.status{
+    margin: 20px 0px;
+}
+.mb10{
+    margin-bottom: 10px;
+}
+.userPhoto{
+
+}

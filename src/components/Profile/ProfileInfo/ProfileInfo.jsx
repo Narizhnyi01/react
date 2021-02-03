@@ -6,6 +6,8 @@ import Preloader from "../../Common/Preloadrer/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import ProfileDataFormReduxForm from "./ProfileDataForm";
 import MiniPreloader from "../../Common/Preloadrer/MiniPreloader";
+import Button from "@material-ui/core/Button";
+import s from "../MyPosts/posts.module.css";
 
 
 const ProfileInfo = (props) => {
@@ -24,29 +26,23 @@ const ProfileInfo = (props) => {
         props.saveProfile(formData).then( () => {
 			setEditMode(false);
 		});
-
-
-        // debugger
-
     }
-
-
     return (
         <div>
-            <div className={style.banner_image}>
-                {/*<img src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' alt=''/>*/}
-            </div>
             <div className={style.body_post}>
                 <div className={style.photo_wrap}>
                     <img
-                        src={props.profile.photos.large || 'https://lh3.googleusercontent.com/proxy/Ukde1k4yAp1SNrRVnJjQJBwflhpEnXu_Q3CQZBiKaBC0I62luEEIBII7HYkkWXBTzWlPs88JfYWtJugb_lXkvVWdHgxUFkU0nDIr'}
+                        className={s.userPhoto}
+                        src={props.profile.photos.large || 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png'}
                         alt=""/>
                     {props.isOwner && <input className={style.file_photo} id="file_photo" type="file" onChange={onMainPhotoSelected}/>}
-                    {props.isOwner && <label className={style.label_photo} for="file_photo">Загрузить фото</label>}
+                    {props.isOwner && <label className={style.label_photo} for="file_photo">Upload photo</label>}
                     {props.isFetching && <div className={style.loading_box}><MiniPreloader/></div>}
                 </div>
+                <div className={s.status}>
+                    <ProfileStatusWithHooks  status={props.status} updateStatus={props.updateStatus}/>
 
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                </div>
 
 
                 {editMode
@@ -63,19 +59,22 @@ const ProfileInfo = (props) => {
 }
 const ProfileData = ({profile, isOwner, goToEditMode}) => {
     return <div>
-        {isOwner && <div>
-            <button onClick={goToEditMode}>edit</button>
+        {isOwner && <div className={s.mb30}>
+
+            <Button onClick={goToEditMode} variant="contained" color="primary">
+                Edit
+            </Button>
         </div>}
 
-        <div>Меня зовут: {profile.fullName}</div>
-        <div> Немного обо мне: {profile.aboutMe} </div>
-        <div>поиск работы: {profile.lookingForAJobDescription}</div>
-        <div>Loking for a job: {profile.lookingForAJob ? "yes" : "no"}</div>
+        <div className={s.mb10}>My name is: {profile.fullName}</div>
+        <div className={s.mb10}> About me: {profile.aboutMe} </div>
+        <div className={s.mb10}>Job search: {profile.lookingForAJobDescription}</div>
+        <div className={s.mb10}>Looking for a job: {profile.lookingForAJob ? "yes" : "no"}</div>
         {
             profile.lolookingForAJob &&
-            <div>Skils: {profile.lookingForAJobDescription}</div>
+            <div className={s.mb10}>Skills: {profile.lookingForAJobDescription}</div>
         }
-        <div>Contacts: {Object.keys(profile.contacts).map(key => {
+        <div><div className={s.mb10}>Contacts:</div> {Object.keys(profile.contacts).map(key => {
             return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
         })}</div>
     </div>

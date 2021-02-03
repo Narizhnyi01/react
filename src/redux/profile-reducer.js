@@ -12,9 +12,6 @@ let initialState = {
     posts: [
         {id: 1, message: 'hello', like: '12'},
         {id: 2, message: 'how are you?', like: '17'},
-        {id: 3, message: 'how are you?', like: '27'},
-        {id: 4, message: 'how are 21?', like: '37'},
-        {id: 5, message: 'how are you111?', like: '47'}
     ],
     // newPostText: '',
     profile: null,

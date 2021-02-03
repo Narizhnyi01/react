@@ -1,9 +1,24 @@
 .header{
     grid-area: h;
-    background: #2FB38C;
+    background: #000;
     display: flex;
     align-items: center;
+    color: #fff;
+    padding: 5px 0px;
   }
-  .header img{
+.header img{
     width: 100px;
-  }
+    animation-name: example;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes example {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+
+    }
+}

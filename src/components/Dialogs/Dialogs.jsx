@@ -10,27 +10,33 @@ import {maxLengthCreator, required} from "../../utils/validators";
 import AddMessageForm from "./AddMessageForm/AddMessageForm";
 
 
-
-
 const Dialogs = (props) => {
     let state = props.messagesPage;
-    let messagesElements = state.messages.map(message => <Message className={message.whoSend} key={message.id} message={message.message}/>);
+    let messagesElements = state.messages.map(message => <Message className={message.whoSend} key={message.id}
+                                                                  message={message.message}/>);
     let dialogsElement = state.dialogs.map(dialog => <DialogItem name={dialog.name} key={dialog.id} id={dialog.id}/>);
 
     let addNewMessage = (values) => {
         props.sendMessage(values.newMessageBody);
     }
 
-    if (!props.isAuth) return <Redirect to="/login" />
+    if (!props.isAuth) return <Redirect to="/login"/>
 
     return (
-        <div className={style.dialogs}>
-            <div className={style.dialog_items}>
-                {dialogsElement}
+        <>
+            <div className={style.dialogs}>
+                <div className={style.dialog_items}>
+                    {dialogsElement}
+                </div>
+                <div>{messagesElements}</div>
             </div>
-            <div>{messagesElements}</div>
-            <AddMessageForm onSubmit={addNewMessage}/>
-        </div>
+            <div className={style.messageWrap}>
+                <AddMessageForm onSubmit={addNewMessage}/>
+
+            </div>
+
+        </>
+
     );
 }
 

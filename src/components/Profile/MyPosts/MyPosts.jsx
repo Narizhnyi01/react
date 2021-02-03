@@ -4,12 +4,14 @@ import Post from "./Post/Post";
 import {Field, reduxForm, reset} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators";
 import {Textarea} from "../../Common/FormControls/FormControls";
+import {renderTextField, renderTextFieldMulti} from "../../Common/FormControls/MaterialUiForm";
+import Button from "@material-ui/core/Button";
 
 
 
 
 const MyPosts = React.memo(props => {
-	console.log(322223)
+
 	let postsElement =
 		[...props.posts]
 			// .reverse()
@@ -24,7 +26,7 @@ const MyPosts = React.memo(props => {
 
 	return (
 		<div className={s.posts}>
-			<div>my posts</div>
+
 			<AddPostFormRedux onSubmit={addNewPost}/>
 			<div className={s.posts}>
 				{postsElement}
@@ -36,8 +38,11 @@ const maxLength10 = maxLengthCreator(10)
 const PostSend = (props) =>{
 	return (
         <form onSubmit={props.handleSubmit}>
-            <Field component={Textarea} name={'newPost'} placeholder={'enter your post'} validate={[required, maxLength10]}/>
-            <button>Send</button>
+			<Field className={s.text} color="primary" fullWidth name={'newPost'}  component={renderTextFieldMulti} label="Enter your post" validate={required}/>
+
+			<Button className={s.button} type={'submit'} variant="contained" color="primary">
+				Send
+			</Button>
         </form>
 	);
 }

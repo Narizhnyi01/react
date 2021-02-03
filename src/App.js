@@ -36,7 +36,7 @@ class App extends React.Component {
            return  <Preloader />
        }
         return (
-            <Container>
+            <div className={'app_wrapper'}>
                 <HeaderContainer/>
                 <Sidebar/>
                 <div className='wrap_app_content'>
@@ -52,7 +52,7 @@ class App extends React.Component {
                     <Route path='*' render={() => <div>not found 404</div>}/>
                     </Switch>
                 </div>
-            </Container>
+            </div>
         );
     }
 }

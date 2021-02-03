@@ -18,3 +18,10 @@
 .dialog{
 
 }
+.messageWrap{
+   padding: 20px;
+}
+.messageWrap button{
+   display: block;
+   margin-top: 20px;
+}

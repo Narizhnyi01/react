@@ -1,7 +1,22 @@
 .row{
     display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+    align-items: center;
+    padding: 10px 20px;
 }
 .col_1 img{
     width: 50px;
     height: auto;
+    border-radius: 50%;
+}
+.col_1{
+    display: flex;
+}
+.name{
+    font-weight: 700;
+}
+.row_name{
+    margin-left: 15px;
+    margin-bottom: 10px;
 }

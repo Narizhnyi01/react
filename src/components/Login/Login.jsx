@@ -33,7 +33,7 @@ const LoginForm = (props) => {
 
         <div className="row_input input_label">
             {/*{createField("Email", "email", [required], Input)}*/}
-            <Field color="secondary" fullWidth name="email" component={renderTextField} label="Email" validate={required}/>
+            <Field color="primary" fullWidth name="email" component={renderTextField} label="Email" validate={required}/>
         </div>
         <div className="row_input">
             {/*{createField("Password", "password", [required], Input, {type: "password"})}*/}
@@ -52,11 +52,8 @@ const LoginForm = (props) => {
         { props.captchaUrl &&  <div className="row_input">{captchaField}</div> }
 
 
-            {/*<button className={'btn_login'}>*/}
-            {/*    <span className={'top_btn'}>Login</span>*/}
-            {/*    <span className={'bot_btn'}>Login</span>*/}
-            {/*</button>*/}
-            <Button type={'submit'} variant="contained" color="secondary">
+
+            <Button type={'submit'} variant="contained" color="primary">
                 Login
             </Button>
         { props.error &&  <div className={style.form_summary_error}>{props.error}</div>}

@@ -45,6 +45,19 @@ export const renderTextField = ({label, input, meta: {touched, invalid, error}, 
         variant="outlined"
     />
 )
+export const renderTextFieldMulti = ({label, input, meta: {touched, invalid, error}, ...custom}) => (
+    <TextField
+        label={label}
+        placeholder={label}
+        error={touched && invalid}
+        // helperText={touched && error}
+        {...input}
+        {...custom}
+        variant="outlined"
+        multiline
+        rows={2}
+    />
+)
 
 export const renderCheckbox = ({input, label}) => (
     <div>

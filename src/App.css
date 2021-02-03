@@ -1,22 +1,23 @@
 body{
   font-family: "Roboto";
+  /*background: #000;*/
 }
 .app_wrapper{
   display: grid;
-  max-width: 1200px;
+  /*max-width: 1200px;*/
   margin-left: auto;
   margin-right: auto;
   grid-template-areas: 
     "h h "
     "n c ";
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: auto 1fr;
   grid-auto-columns: 2fr 10fr;
 
 }
 
 .wrap_app_content{
   grid-area: c;
-  background: #F5F1E8;
+  background: #ffffff;
   min-height: calc(100vh - 60px);
 }
 
